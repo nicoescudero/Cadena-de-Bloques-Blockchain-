@@ -1,15 +1,20 @@
 const BlockChain = require('./blockchain');
+const Transactions = require('./transactions');
+
+let silverCoin = new BlockChain();
+
+//add the transactions to the first block
+silverCoin.addTransactions(new Transactions('Intel', 'Canonical', 50));
+silverCoin.addTransactions(new Transactions('HP', 'Canonical', 10));
+
+console.log('Mining...');
+silverCoin.minePendingTransactions('Intel');
+console.log(`Balance= ${silverCoin.getBalanceOfAddres('Intel')}`);
+console.log(JSON.stringify(silverCoin, null, 4));
+
+console.log('Mining...');
+silverCoin.minePendingTransactions('Intel')
+console.log(`Balance= ${silverCoin.getBalanceOfAddres('Intel')}`);
 
 
-let silverCoin = new BlockChain('This is a sample message', '00');
-silverCoin.addBlock('10 SilverCoin');
-silverCoin.addBlock('30 SilverCoin');
-console.log(JSON.stringify(silverCoin.chain, null, 2));
-console.log(silverCoin.validation());
-
-//change the value of bitCoin.chain[1] and execute the method "validation".
-
-silverCoin.chain[1].data = '6 BTC';
-console.log(silverCoin.validation());
-
-
+console.log(JSON.stringify(silverCoin, null, 4));
