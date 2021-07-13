@@ -16,5 +16,5 @@ console.log('Mining...');
 silverCoin.minePendingTransactions('Intel')
 console.log(`Balance= ${silverCoin.getBalanceOfAddres('Intel')}`);
 
-
 console.log(JSON.stringify(silverCoin, null, 4));
+console.log(silverCoin.validation());
